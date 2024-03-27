@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.1 on win32)" generated="2024-03-26T13:27:27.542493" rpa="false" schemaversion="5">
+<suite id="s1" name="Dialogs" source="C:\development\Practice_scripts\tests\dialogs.robot">
+<test id="s1-t1" name="Logged out user can search for products" line="17">
+<kw name="Begin Web Test" owner="Common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-03-26T13:27:28.061370" level="INFO">Opening browser 'firefox' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-03-26T13:27:28.061370" elapsed="7.337535"/>
+</kw>
+<status status="PASS" start="2024-03-26T13:27:28.060329" elapsed="7.338576"/>
+</kw>
+<kw name="Get Selection From User" owner="Dialogs">
+<msg time="2024-03-26T13:27:41.453260" level="INFO">${new_browser} = firefox</msg>
+<var>${new_browser}</var>
+<arg>Which browser?</arg>
+<arg>chrome</arg>
+<arg>ie</arg>
+<arg>firefox</arg>
+<doc>Pauses execution and asks user to select a value.</doc>
+<status status="PASS" start="2024-03-26T13:27:35.398905" elapsed="6.055357"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2024-03-26T13:27:41.460048" level="INFO">${BROWSER} = firefox</msg>
+<arg>${BROWSER}</arg>
+<arg>${new_browser}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2024-03-26T13:27:41.458804" elapsed="0.001244"/>
+</kw>
+<kw name="Search for Products" owner="AmazonApp">
+<kw name="Load" owner="LandingPage">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-03-26T13:27:41.462171" level="INFO">Opening url 'https://www.amazon.com'</msg>
+<arg>${START_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-03-26T13:27:41.462171" elapsed="1.205127"/>
+</kw>
+<status status="PASS" start="2024-03-26T13:27:41.461114" elapsed="1.207185"/>
+</kw>
+<kw name="Verify Page Loaded" owner="LandingPage">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Sell</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-03-26T13:27:42.669298" elapsed="0.037041"/>
+</kw>
+<status status="PASS" start="2024-03-26T13:27:42.668299" elapsed="0.038040"/>
+</kw>
+<kw name="Search for Products" owner="TopNav">
+<kw name="Enter Search Term" owner="TopNav">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-26T13:27:42.708351" level="INFO">Typing text 'Ferrari 458' into text field 'id=twotabsearchtextbox'.</msg>
+<arg>id=twotabsearchtextbox</arg>
+<arg>${SEARCH_TERM}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-26T13:27:42.707345" elapsed="0.750149"/>
+</kw>
+<status status="PASS" start="2024-03-26T13:27:42.707345" elapsed="0.750149"/>
+</kw>
+<kw name="Submit Search" owner="TopNav">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-03-26T13:27:43.457494" level="INFO">Clicking button 'xpath=//*[@id="nav-search"]/form/div[2]/div/input'.</msg>
+<msg time="2024-03-26T13:27:44.665694" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: TypeError: win is null
+Stacktrace:
+capture.canvas@chrome://remote/content/shared/Capture.sys.mjs:77:17
+takeScreenshot@chrome://remote/content/marionette/actors/MarionetteCommandsParent.sys.mjs:292:37
+</msg>
+<msg time="2024-03-26T13:27:44.666835" level="FAIL">WebDriverException: Message: TypeError: browsingContext.currentWindowGlobal is null
+Stacktrace:
+getMarionetteCommandsActorProxy/get/&lt;@chrome://remote/content/marionette/actors/MarionetteCommandsParent.sys.mjs:357:17
+</msg>
+<arg>xpath=//*[@id="nav-search"]/form/div[2]/div/input</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2024-03-26T13:27:43.457494" elapsed="1.246922">WebDriverException: Message: TypeError: browsingContext.currentWindowGlobal is null
+Stacktrace:
+getMarionetteCommandsActorProxy/get/&lt;@chrome://remote/content/marionette/actors/MarionetteCommandsParent.sys.mjs:357:17
+</status>
+</kw>
+<status status="FAIL" start="2024-03-26T13:27:43.457494" elapsed="1.248290">WebDriverException: Message: TypeError: browsingContext.currentWindowGlobal is null
+Stacktrace:
+getMarionetteCommandsActorProxy/get/&lt;@chrome://remote/content/marionette/actors/MarionetteCommandsParent.sys.mjs:357:17
+</status>
+</kw>
+<status status="FAIL" start="2024-03-26T13:27:42.706339" elapsed="1.999445">WebDriverException: Message: TypeError: browsingContext.currentWindowGlobal is null
+Stacktrace:
+getMarionetteCommandsActorProxy/get/&lt;@chrome://remote/content/marionette/actors/MarionetteCommandsParent.sys.mjs:357:17
+</status>
+</kw>
+<kw name="Verify Search Completed" owner="SearchResults">
+<status status="NOT RUN" start="2024-03-26T13:27:44.705784" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-03-26T13:27:41.461114" elapsed="3.244670">WebDriverException: Message: TypeError: browsingContext.currentWindowGlobal is null
+Stacktrace:
+getMarionetteCommandsActorProxy/get/&lt;@chrome://remote/content/marionette/actors/MarionetteCommandsParent.sys.mjs:357:17
+</status>
+</kw>
+<kw name="End Web Test" owner="Common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-03-26T13:27:44.707024" elapsed="2.101272"/>
+</kw>
+<status status="PASS" start="2024-03-26T13:27:44.707024" elapsed="2.101272"/>
+</kw>
+<tag>Web</tag>
+<status status="FAIL" start="2024-03-26T13:27:28.058823" elapsed="18.750475">WebDriverException: Message: TypeError: browsingContext.currentWindowGlobal is null
+Stacktrace:
+getMarionetteCommandsActorProxy/get/&lt;@chrome://remote/content/marionette/actors/MarionetteCommandsParent.sys.mjs:357:17
+</status>
+</test>
+<test id="s1-t2" name="Logged out user can add product to cart" line="23">
+<kw name="Begin Web Test" owner="Common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-03-26T13:27:46.812295" level="INFO">Opening browser 'firefox' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-03-26T13:27:46.812295" elapsed="7.055289"/>
+</kw>
+<status status="PASS" start="2024-03-26T13:27:46.811720" elapsed="7.055864"/>
+</kw>
+<kw name="Search for Products" owner="AmazonApp">
+<kw name="Load" owner="LandingPage">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-03-26T13:27:53.870782" level="INFO">Opening url 'https://www.amazon.com'</msg>
+<arg>${START_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-03-26T13:27:53.870782" elapsed="2.739592"/>
+</kw>
+<status status="PASS" start="2024-03-26T13:27:53.869781" elapsed="2.741593"/>
+</kw>
+<kw name="Verify Page Loaded" owner="LandingPage">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2024-03-26T13:27:56.629953" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: WebDriver session does not exist, or is not active
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:192:5
+InvalidSessionIDError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:447:5
+assert.that/&lt;@chrome://remote/content/shared/webdriver/Assert.sys.mjs:485:13
+assert.session@chrome://remote/content/shared/webdriver/Assert.sys.mjs:37:4
+despatch@chrome://remote/content/marionette/server.sys.mjs:315:19
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/&lt;@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/&lt;@chrome://remote/content/marionette/transport.sys.mjs:494:20
+</msg>
+<msg time="2024-03-26T13:27:56.631953" level="FAIL">InvalidSessionIdException: Message: WebDriver session does not exist, or is not active
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:192:5
+InvalidSessionIDError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:447:5
+assert.that/&lt;@chrome://remote/content/shared/webdriver/Assert.sys.mjs:485:13
+assert.session@chrome://remote/content/shared/webdriver/Assert.sys.mjs:37:4
+despatch@chrome://remote/content/marionette/server.sys.mjs:315:19
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/&lt;@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/&lt;@chrome://remote/content/marionette/transport.sys.mjs:494:20
+</msg>
+<arg>Sell</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="FAIL" start="2024-03-26T13:27:56.611374" elapsed="0.022580">InvalidSessionIdException: Message: WebDriver session does not exist, or is not active
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:192:5
+InvalidSessionIDError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:447:5
+assert.that/&lt;@chrome://remote/content/shared/webdriver/Assert.sys.mjs:485:13
+assert.session@chrome://remote/content/shared/webdriver/Assert.sys.mjs:37:4
+despatch@chrome://remote/content/marionette/server.sys.mjs:315:19
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/&lt;@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/&lt;@chrome://remote/content/marionette/transport.sys.mjs:494:20
+</status>
+</kw>
+<status status="FAIL" start="2024-03-26T13:27:56.611374" elapsed="0.022580">InvalidSessionIdException: Message: WebDriver session does not exist, or is not active
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:192:5
+InvalidSessionIDError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:447:5
+assert.that/&lt;@chrome://remote/content/shared/webdriver/Assert.sys.mjs:485:13
+assert.session@chrome://remote/content/shared/webdriver/Assert.sys.mjs:37:4
+despatch@chrome://remote/content/marionette/server.sys.mjs:315:19
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/&lt;@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/&lt;@chrome://remote/content/marionette/transport.sys.mjs:494:20
+</status>
+</kw>
+<kw name="Search for Products" owner="TopNav">
+<status status="NOT RUN" start="2024-03-26T13:27:56.634955" elapsed="0.000000"/>
+</kw>
+<kw name="Verify Search Completed" owner="SearchResults">
+<status status="NOT RUN" start="2024-03-26T13:27:56.634955" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-03-26T13:27:53.868574" elapsed="2.766381">InvalidSessionIdException: Message: WebDriver session does not exist, or is not active
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:192:5
+InvalidSessionIDError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:447:5
+assert.that/&lt;@chrome://remote/content/shared/webdriver/Assert.sys.mjs:485:13
+assert.session@chrome://remote/content/shared/webdriver/Assert.sys.mjs:37:4
+despatch@chrome://remote/content/marionette/server.sys.mjs:315:19
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/&lt;@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/&lt;@chrome://remote/content/marionette/transport.sys.mjs:494:20
+</status>
+</kw>
+<kw name="Execute Manual Step" owner="Dialogs">
+<arg>Do something manually!</arg>
+<arg>It failed!</arg>
+<doc>Pauses execution until user sets the keyword status.</doc>
+<status status="NOT RUN" start="2024-03-26T13:27:56.640498" elapsed="0.000000"/>
+</kw>
+<kw name="Select Product from Search Results" owner="AmazonApp">
+<status status="NOT RUN" start="2024-03-26T13:27:56.641499" elapsed="0.000000"/>
+</kw>
+<kw name="Pause Execution" owner="Dialogs">
+<doc>Pauses execution until user clicks ``Ok`` button.</doc>
+<status status="NOT RUN" start="2024-03-26T13:27:56.641499" elapsed="0.000000"/>
+</kw>
+<kw name="Add Product to Cart" owner="AmazonApp">
+<status status="NOT RUN" start="2024-03-26T13:27:56.642499" elapsed="0.000000"/>
+</kw>
+<kw name="End Web Test" owner="Common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-03-26T13:27:56.643499" elapsed="2.046886"/>
+</kw>
+<status status="PASS" start="2024-03-26T13:27:56.643499" elapsed="2.047944"/>
+</kw>
+<tag>Web</tag>
+<status status="FAIL" start="2024-03-26T13:27:46.810481" elapsed="11.880962">InvalidSessionIdException: Message: WebDriver session does not exist, or is not active
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:192:5
+InvalidSessionIDError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:447:5
+assert.that/&lt;@chrome://remote/content/shared/webdriver/Assert.sys.mjs:485:13
+assert.session@chrome://remote/content/shared/webdriver/Assert.sys.mjs:37:4
+despatch@chrome://remote/content/marionette/server.sys.mjs:315:19
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/&lt;@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/&lt;@chrome://remote/content/marionette/transport.sys.mjs:494:20
+</status>
+</test>
+<doc>These are some web tests</doc>
+<status status="FAIL" start="2024-03-26T13:27:27.544542" elapsed="31.149126"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="2" skip="0">Web</stat>
+</tag>
+<suite>
+<stat pass="0" fail="2" skip="0" id="s1" name="Dialogs">Dialogs</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-03-26T13:27:44.665694" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: TypeError: win is null
+Stacktrace:
+capture.canvas@chrome://remote/content/shared/Capture.sys.mjs:77:17
+takeScreenshot@chrome://remote/content/marionette/actors/MarionetteCommandsParent.sys.mjs:292:37
+</msg>
+<msg time="2024-03-26T13:27:56.629953" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: WebDriver session does not exist, or is not active
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:192:5
+InvalidSessionIDError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:447:5
+assert.that/&lt;@chrome://remote/content/shared/webdriver/Assert.sys.mjs:485:13
+assert.session@chrome://remote/content/shared/webdriver/Assert.sys.mjs:37:4
+despatch@chrome://remote/content/marionette/server.sys.mjs:315:19
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/&lt;@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/&lt;@chrome://remote/content/marionette/transport.sys.mjs:494:20
+</msg>
+</errors>
+</robot>
